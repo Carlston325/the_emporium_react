@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 import MailIcon from "@mui/icons-material/Mail";
@@ -68,10 +68,10 @@ function Enquiry() {
     });
   }
 
-  const [isExpanded, setIsExpanded] = useState(false);
-  function expand() {
-    setIsExpanded(true);
-  }
+  // const [isExpanded, setIsExpanded] = useState(false);
+  // function expand() {
+  //   setIsExpanded(true);
+  // }
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   function submitted() {
@@ -81,40 +81,84 @@ function Enquiry() {
     }, 500);
   }
 
-  function inputs() {
-    return (
-      <>
-        <input
-          onChange={handleChange}
-          value={userEnquiry.name}
-          name="name"
-          placeholder="Enter Name"
-          required
-        />
-        <input
-          onChange={handleChange}
-          value={userEnquiry.fromEmail}
-          name="name"
-          placeholder="Enter Name"
-          required
-        />
-        <input
-          onChange={handleChange}
-          value={userEnquiry.fromEmail}
-          name="fromEmail"
-          placeholder="Your email"
-          required
-        />
-        <input
-          onChange={handleChange}
-          value={userEnquiry.subject}
-          name="subject"
-          placeholder="Subject"
-          required
-        />
-      </>
-    );
-  }
+  // OTHER USE OF FORM (EXPANDING THE FORM FROM TEXTAREA)
+  // function inputs() {
+  //   return (
+  //     <>
+  //       <input
+  //         onChange={handleChange}
+  //         value={userEnquiry.name}
+  //         name="name"
+  //         placeholder="Enter Name"
+  //         required
+  //       />
+  //       <input
+  //         onChange={handleChange}
+  //         value={userEnquiry.fromEmail}
+  //         name="name"
+  //         placeholder="Enter Name"
+  //         required
+  //       />
+  //       <input
+  //         onChange={handleChange}
+  //         value={userEnquiry.fromEmail}
+  //         name="fromEmail"
+  //         placeholder="Your email"
+  //         required
+  //       />
+  //       <input
+  //         onChange={handleChange}
+  //         value={userEnquiry.subject}
+  //         name="subject"
+  //         placeholder="Subject"
+  //         required
+  //       />
+  //     </>
+  //   );
+  // }
+
+  //return (
+  //<>
+  //   {isSubmitted && <p>{enquiryFail ? "❌" + enquiryFail : "✅Submitted"}</p>}
+  //   <form
+  //     id="askUs"
+  //     className="enquireForm"
+  //     style={{ height: isExpanded ? "420px" : "220px" }}
+  //   >
+  //     {isExpanded && inputs()}
+
+  //     <textarea
+  //       onClick={expand}
+  //       onChange={handleChange}
+  //       name="content"
+  //       value={userEnquiry.content}
+  //       placeholder={isExpanded ? "Your message..." : "Click to expand"}
+  //       rows={isExpanded ? 10 : 4}
+  //       required
+  //     />
+  //     {isExpanded ? (
+  //       <button
+  //         className="btn"
+  //         type="submit"
+  //         onClick={(e) => {
+  //           console.log("SUBMITTED");
+  //           sendEmail();
+  //           submitted();
+  //           setUserEnquiry({
+  //             fromEmail: "",
+  //             toEmail: "notslrac@gmail.com",
+  //             subject: "",
+  //             content: "",
+  //           });
+  //           e.preventDefault();
+  //         }}
+  //       >
+  //         Send Message <MailIcon />
+  //       </button>
+  //     ) : null}
+  //   </form>
+  // </>
+  //);
 
   return (
     <>
@@ -124,7 +168,7 @@ function Enquiry() {
         </div>
       ) : null}
 
-      <form id="askUs" className="enquireForm"> 
+      <form id="askUs" className="enquireForm">
         <h2>Leave us a message</h2>
         <input
           onChange={handleChange}
@@ -148,7 +192,6 @@ function Enquiry() {
           required
         />
         <textarea
-          onClick={expand}
           onChange={handleChange}
           name="content"
           value={userEnquiry.content}
@@ -177,46 +220,6 @@ function Enquiry() {
         </button>
       </form>
     </>
-    // <>
-    //   {isSubmitted && <p>{enquiryFail ? "❌" + enquiryFail : "✅Submitted"}</p>}
-    //   <form
-    //     id="askUs"
-    //     className="enquireForm"
-    //     style={{ height: isExpanded ? "420px" : "220px" }}
-    //   >
-    //     {isExpanded && inputs()}
-
-    //     <textarea
-    //       onClick={expand}
-    //       onChange={handleChange}
-    //       name="content"
-    //       value={userEnquiry.content}
-    //       placeholder={isExpanded ? "Your message..." : "Click to expand"}
-    //       rows={isExpanded ? 10 : 4}
-    //       required
-    //     />
-    //     {isExpanded ? (
-    //       <button
-    //         className="btn"
-    //         type="submit"
-    //         onClick={(e) => {
-    //           console.log("SUBMITTED");
-    //           sendEmail();
-    //           submitted();
-    //           setUserEnquiry({
-    //             fromEmail: "",
-    //             toEmail: "notslrac@gmail.com",
-    //             subject: "",
-    //             content: "",
-    //           });
-    //           e.preventDefault();
-    //         }}
-    //       >
-    //         Send Message <MailIcon />
-    //       </button>
-    //     ) : null}
-    //   </form>
-    // </>
   );
 }
 

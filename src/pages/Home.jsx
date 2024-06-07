@@ -1,4 +1,4 @@
-import Card, { CreateCard } from "../components/Card";
+import { CreateCard } from "../components/Card";
 
 function Home() {
   const allProducts = [
@@ -35,7 +35,7 @@ function Home() {
   return (
     <main className="homepage">
       <div className="shoppingLinks">
-        <a href="/product">all</a>
+        <a href="/product">All</a>
         <a href="/product">mens</a>
         <a href="/product">womens</a>
         <a href="/product">kids</a>

@@ -3,7 +3,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailIcon from "@mui/icons-material/Email";
 
-import Link, { CreateLinkDescrip } from "../components/LinkDescrip";
+import { CreateLinkDescrip } from "../components/LinkDescrip";
 import Enquiry from "../components/Enquiry";
 
 function Contact() {
