@@ -8,7 +8,7 @@ function About() {
             <div className="shape"></div>
             <img
               src="./images/about_image.png"
-              alt="about us image"
+              alt="about us"
               className="img"
             />
           </div>
